@@ -1,0 +1,12 @@
+Run the Script with Bypass:
+
+Use the following command to run  script while bypassing the execution policy for that session:
+powershell -ExecutionPolicy Bypass -File "C:\path\to\your\script.ps1"
+
+Option 2: Modify the Script to Include Bypass
+To include a bypass directly in your script, you can use the following technique. However, you will need to call this script from another script or command line.
+
+Create a new script file named run_script.bat and include the following content:
+
+@echo off
+powershell -ExecutionPolicy Bypass -File "C:\path\to\your\script.ps1"
